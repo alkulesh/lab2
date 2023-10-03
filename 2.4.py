@@ -16,12 +16,20 @@ def Input():
             else:
                 print("Введите целое число больше нуля! ")
         n = int(n)
-        m= int(m)
+        m = int(m)
         matrix = []
         for i in range(n):
             s = []
             for j in range(m):
-                element = float(input(f"Введите элемент матрицы [{i + 1}][{j + 1}] "))
+                while(x):
+                    element = input(f"Введите элемент матрицы [{i + 1}][{j + 1}] ")
+                    if isinstance(element, float):
+                        break
+                    elif element.isdigit():
+                        break
+                    else:
+                            print ("Ошибка! Введите число!")
+                element = float(element)
                 s.append(element)
             matrix.append(s)
         return matrix
@@ -56,3 +64,6 @@ try:
     print(result)
 except Exception as e:
     print("Произошла ошибка:", e)
+
+finally:
+    print("Программа выполнена!")
